@@ -64,43 +64,6 @@ namespace App1
             stkRattingbar.Children.Add(star3);
             stkRattingbar.Children.Add(star4);
             stkRattingbar.Children.Add(star5);
-
-            // here i added pan gesture recognizer for selecting the star 
-            var panGesture = new PanGestureRecognizer();
-            panGesture.PanUpdated += (s, e) =>
-            {
-                // Handle the pan
-                var obj = e;
-                double width = star1.Width;
-                if (obj.TotalX > 0)
-                {
-                    fillStar(1, this);
-                    Command?.Execute(1);
-                }
-                if (obj.TotalX > width)
-                {
-                    fillStar(2, this);
-                    Command?.Execute(2);
-                }
-                if (obj.TotalX > (width * 2))
-                {
-                    fillStar(3, this);
-                    Command?.Execute(3);
-
-                }
-                if (obj.TotalX > (width * 3))
-                {
-                    fillStar(4, this);
-                    Command?.Execute(4);
-
-                }
-                if (obj.TotalX > (width * 4))
-                {
-                    fillStar(5, this);
-                    Command?.Execute(5);
-                }
-            };
-            stkRattingbar.GestureRecognizers.Add(panGesture);
         }
 
         // this event will fire when you click on image(star)
@@ -418,5 +381,38 @@ namespace App1
         }
         #endregion
 
+        private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
+        {
+            // Handle the pan
+            var obj = e;
+            double width = star1.Width;
+            if (obj.TotalX > 0)
+            {
+                fillStar(1, this);
+                Command?.Execute(1);
+            }
+            if (obj.TotalX > width)
+            {
+                fillStar(2, this);
+                Command?.Execute(2);
+            }
+            if (obj.TotalX > (width * 2))
+            {
+                fillStar(3, this);
+                Command?.Execute(3);
+
+            }
+            if (obj.TotalX > (width * 3))
+            {
+                fillStar(4, this);
+                Command?.Execute(4);
+
+            }
+            if (obj.TotalX > (width * 4))
+            {
+                fillStar(5, this);
+                Command?.Execute(5);
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Class="App1.MainPage">
 
-    <StackLayout VerticalOptions="Center">
+    <StackLayout >
         <Label Text="Custom Ratting Bar Demo" HorizontalTextAlignment="Center" />
         <customcontrol:RattingBar x:Name="customRattingBar" HorizontalOptions="Center"  ImageWidth="25" ImageHeight="25"     Command="{Binding rattingBarCommand}" SelectedStarValue="3"   FillStarImage="fillstar" EmptyStarImage="emptystar"   />
         <Label Text="{Binding Source={x:Reference customRattingBar}, Path=SelectedStarValue,StringFormat='Selected Star is: {0}'}"  HorizontalTextAlignment="Center" />
@@ -17,5 +17,4 @@
         <Label Text="{Binding Source={x:Reference customRattingBar1}, Path=SelectedStarValue,StringFormat='Selected Star is: {0}'}"  HorizontalTextAlignment="Center" />
         <Button Command="{Binding clickCommand}"  CommandParameter="{x:Reference Name=customRattingBar1}" Text="Click me" />
     </StackLayout>
-
 </ContentPage>

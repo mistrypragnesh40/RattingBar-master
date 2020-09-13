@@ -5,5 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App1.RattingBar" >
-    <StackLayout x:Name="stkRattingbar" Orientation="Horizontal" />
+    <StackLayout x:Name="stkRattingbar" Orientation="Horizontal" >
+        <StackLayout.GestureRecognizers>
+            <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
 </ContentView>
