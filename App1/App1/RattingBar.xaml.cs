@@ -20,6 +20,11 @@ namespace App1
         public Image star3;
         public Image star4;
         public Image star5;
+        int commandParameterForStar1 = 1;
+        int commandParameterForStar2 = 2;
+        int commandParameterForStar3 = 3;
+        int commandParameterForStar4 = 4;
+        int commandParameterForStar5 = 5;
         public RattingBar()
         {
             InitializeComponent();
@@ -33,29 +38,29 @@ namespace App1
             star1.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = ItemTappedCommand,
-                CommandParameter = 1
+                CommandParameter = commandParameterForStar1
             });
 
             star2.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = ItemTappedCommand,
-                CommandParameter = 2
+                CommandParameter = commandParameterForStar2
             });
 
             star3.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = ItemTappedCommand,
-                CommandParameter = 3
+                CommandParameter = commandParameterForStar3
             });
             star4.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = ItemTappedCommand,
-                CommandParameter = 4
+                CommandParameter = commandParameterForStar4
             });
             star5.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = ItemTappedCommand,
-                CommandParameter = 5
+                CommandParameter = commandParameterForStar5
             });
             #endregion
 
@@ -232,47 +237,93 @@ namespace App1
         private static void fillStar(int selectedValue, RattingBar obj)
         {
             obj.SelectedStarValue = selectedValue;
-            switch (selectedValue)
+            if (obj.FlowDirection == FlowDirectionEnum.RightToLeft)
             {
-                case 1:
-                    obj.star1.Source = obj.fillStarImage;
-                    obj.star2.Source = obj.emptyStarImage;
-                    obj.star3.Source = obj.emptyStarImage;
-                    obj.star4.Source = obj.emptyStarImage;
-                    obj.star5.Source = obj.emptyStarImage;
-                    break;
-                case 2:
-                    obj.star1.Source = obj.fillStarImage;
-                    obj.star2.Source = obj.fillStarImage;
-                    obj.star3.Source = obj.emptyStarImage;
-                    obj.star4.Source = obj.emptyStarImage;
-                    obj.star5.Source = obj.emptyStarImage;
-                    break;
-                case 3:
-                    obj.star1.Source = obj.fillStarImage;
-                    obj.star2.Source = obj.fillStarImage;
-                    obj.star3.Source = obj.fillStarImage;
-                    obj.star4.Source = obj.emptyStarImage;
-                    obj.star5.Source = obj.emptyStarImage;
-                    break;
-                case 4:
-                    obj.star1.Source = obj.fillStarImage;
-                    obj.star2.Source = obj.fillStarImage;
-                    obj.star3.Source = obj.fillStarImage;
-                    obj.star4.Source = obj.fillStarImage;
-                    obj.star5.Source = obj.emptyStarImage;
-                    break;
-                case 5:
-                    obj.star1.Source = obj.fillStarImage;
-                    obj.star2.Source = obj.fillStarImage;
-                    obj.star3.Source = obj.fillStarImage;
-                    obj.star4.Source = obj.fillStarImage;
-                    obj.star5.Source = obj.fillStarImage;
-                    break;
+                switch (selectedValue)
+                {
+                    case 1:
+                        obj.star1.Source = obj.emptyStarImage;
+                        obj.star2.Source = obj.emptyStarImage;
+                        obj.star3.Source = obj.emptyStarImage;
+                        obj.star4.Source = obj.emptyStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
+                    case 2:
+                        obj.star1.Source = obj.emptyStarImage;
+                        obj.star2.Source = obj.emptyStarImage;
+                        obj.star3.Source = obj.emptyStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
+                    case 3:
+                        obj.star1.Source = obj.emptyStarImage;
+                        obj.star2.Source = obj.emptyStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
+                    case 4:
+                        obj.star1.Source = obj.emptyStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
+                    case 5:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
 
+
+                }
             }
-        }
+            else
+            {
+                switch (selectedValue)
+                {
+                    case 1:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.emptyStarImage;
+                        obj.star3.Source = obj.emptyStarImage;
+                        obj.star4.Source = obj.emptyStarImage;
+                        obj.star5.Source = obj.emptyStarImage;
+                        break;
+                    case 2:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.emptyStarImage;
+                        obj.star4.Source = obj.emptyStarImage;
+                        obj.star5.Source = obj.emptyStarImage;
+                        break;
+                    case 3:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.emptyStarImage;
+                        obj.star5.Source = obj.emptyStarImage;
+                        break;
+                    case 4:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.emptyStarImage;
+                        break;
+                    case 5:
+                        obj.star1.Source = obj.fillStarImage;
+                        obj.star2.Source = obj.fillStarImage;
+                        obj.star3.Source = obj.fillStarImage;
+                        obj.star4.Source = obj.fillStarImage;
+                        obj.star5.Source = obj.fillStarImage;
+                        break;
 
+                }
+            }
+
+        }
 
         #region EmptyStar and fillstar property
         public static readonly BindableProperty EmptyStarImageProperty = BindableProperty.Create(
@@ -381,38 +432,163 @@ namespace App1
         }
         #endregion
 
+        #region Flow Direction
+        public static new readonly BindableProperty FlowDirectionProperty = BindableProperty.Create(
+         propertyName: nameof(FlowDirection),
+         returnType: typeof(FlowDirectionEnum),
+         declaringType: typeof(RattingBar),
+         defaultValue: FlowDirectionEnum.LeftToRight,
+         propertyChanged: FlowDirectionPropertyChanged
+         );
+
+        private static void FlowDirectionPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (RattingBar)bindable;
+
+            if (control != null)
+            {
+                var flowDirection = (FlowDirectionEnum)newValue;
+                if (flowDirection == FlowDirectionEnum.RightToLeft)
+                {
+                    #region adding Gesture Recognizer on Star(Image Control)
+
+                    control.star1.GestureRecognizers.Clear();
+                    control.star2.GestureRecognizers.Clear();
+                    control.star3.GestureRecognizers.Clear();
+                    control.star4.GestureRecognizers.Clear();
+                    control.star5.GestureRecognizers.Clear();
+
+                    control.commandParameterForStar1 = 5;
+                    control.commandParameterForStar2 = 4;
+                    control.commandParameterForStar3 = 3;
+                    control.commandParameterForStar4 = 2;
+                    control.commandParameterForStar5 = 1;
+
+
+                    control.star1.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = control.ItemTappedCommand,
+                        CommandParameter = control.commandParameterForStar1
+                    });
+
+                    control.star2.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = control.ItemTappedCommand,
+                        CommandParameter = control.commandParameterForStar2
+                    });
+
+                    control.star3.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = control.ItemTappedCommand,
+                        CommandParameter = control.commandParameterForStar3
+                    });
+                    control.star4.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = control.ItemTappedCommand,
+                        CommandParameter = control.commandParameterForStar4
+                    });
+                    control.star5.GestureRecognizers.Add(new TapGestureRecognizer
+                    {
+                        Command = control.ItemTappedCommand,
+                        CommandParameter = control.commandParameterForStar5
+                    });
+                    #endregion
+
+                    control.stkRattingbar.Children.Add(control.star1);
+                    control.stkRattingbar.Children.Add(control.star2);
+                    control.stkRattingbar.Children.Add(control.star3);
+                    control.stkRattingbar.Children.Add(control.star4);
+                    control.stkRattingbar.Children.Add(control.star5);
+                }
+
+
+                // if the SelectedStarValue is assign first and later fillStarImage & EmptyStar assign   
+                if (!string.IsNullOrEmpty(control.fillStarImage) && !string.IsNullOrEmpty(control.emptyStarImage))
+                {
+                    fillStar(control.SelectedStarValue, control);
+                }
+            }
+
+        }
+        public new FlowDirectionEnum FlowDirection
+        {
+            get { return (FlowDirectionEnum)base.GetValue(FlowDirectionProperty); }
+            set { base.SetValue(CommandProperty, value); }
+        }
+        #endregion
+
         private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
         {
             // Handle the pan
             var obj = e;
             double width = star1.Width;
-            if (obj.TotalX > 0)
+            if (FlowDirection == FlowDirectionEnum.LeftToRight)
             {
-                fillStar(1, this);
-                Command?.Execute(1);
-            }
-            if (obj.TotalX > width)
-            {
-                fillStar(2, this);
-                Command?.Execute(2);
-            }
-            if (obj.TotalX > (width * 2))
-            {
-                fillStar(3, this);
-                Command?.Execute(3);
+                if (obj.TotalX > 0)
+                {
+                    fillStar(1, this);
+                    Command?.Execute(1);
+                }
+                if (obj.TotalX > width)
+                {
+                    fillStar(2, this);
+                    Command?.Execute(2);
+                }
+                if (obj.TotalX > (width * 2))
+                {
+                    fillStar(3, this);
+                    Command?.Execute(3);
 
-            }
-            if (obj.TotalX > (width * 3))
-            {
-                fillStar(4, this);
-                Command?.Execute(4);
+                }
+                if (obj.TotalX > (width * 3))
+                {
+                    fillStar(4, this);
+                    Command?.Execute(4);
 
+                }
+                if (obj.TotalX > (width * 4))
+                {
+                    fillStar(5, this);
+                    Command?.Execute(5);
+                }
             }
-            if (obj.TotalX > (width * 4))
+            else
             {
-                fillStar(5, this);
-                Command?.Execute(5);
+                if (obj.TotalX > 0)
+                {
+                    fillStar(5, this);
+                    Command?.Execute(5);
+                }
+                if (obj.TotalX > width)
+                {
+                    fillStar(4, this);
+                    Command?.Execute(4);
+                }
+                if (obj.TotalX > (width * 2))
+                {
+                    fillStar(3, this);
+                    Command?.Execute(3);
+
+                }
+                if (obj.TotalX > (width * 3))
+                {
+                    fillStar(2, this);
+                    Command?.Execute(2);
+
+                }
+                if (obj.TotalX > (width * 4))
+                {
+                    fillStar(1, this);
+                    Command?.Execute(1);
+                }
             }
+
+
         }
+    }
+    public enum FlowDirectionEnum
+    {
+        LeftToRight,
+        RightToLeft
     }
 }

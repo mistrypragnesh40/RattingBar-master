@@ -9,7 +9,7 @@
 
     <StackLayout >
         <Label Text="Custom Ratting Bar Demo" HorizontalTextAlignment="Center" />
-        <customcontrol:RattingBar x:Name="customRattingBar" HorizontalOptions="Center"  ImageWidth="25" ImageHeight="25"     Command="{Binding rattingBarCommand}" SelectedStarValue="3"   FillStarImage="fillstar" EmptyStarImage="emptystar"   />
+        <customcontrol:RattingBar x:Name="customRattingBar" HorizontalOptions="Center"  ImageWidth="25" ImageHeight="25"   FlowDirection="RightToLeft"   Command="{Binding rattingBarCommand}" SelectedStarValue="3"   FillStarImage="fillstar" EmptyStarImage="emptystar"   />
         <Label Text="{Binding Source={x:Reference customRattingBar}, Path=SelectedStarValue,StringFormat='Selected Star is: {0}'}"  HorizontalTextAlignment="Center" />
         <Button Command="{Binding clickCommand}"  CommandParameter="{x:Reference Name=customRattingBar}" Text="Click me" />
 
